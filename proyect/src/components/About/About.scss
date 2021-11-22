@@ -1,0 +1,85 @@
+.about__section{
+    display: flex;
+    flex-direction: row;
+}
+
+.about__container{
+    justify-content: center;
+    margin-left: 29.9rem;
+    margin-top: 16.7rem;
+    margin-bottom: 16.4rem;
+    @include breakpoint("desktop"){
+        justify-content: center;
+        margin-left: 19.9rem;
+    }
+    @include breakpoint("tablet"){
+        margin-left: 19.9rem;
+    }
+    @include breakpoint("mobile"){
+        margin-left: 13.9rem;
+    }
+}
+
+.about__title1{
+    @include title-about;
+    margin-bottom: 0rem;
+    color: $color-letras;
+    line-height: 5rem;
+    @include breakpoint("desktop"){
+        font-size: 3.2rem;
+        line-height: 2rem;
+    }
+    @include breakpoint("tablet"){
+        font-size: 3.1rem;
+        line-height: 2rem;
+    }
+}
+
+.about__title2{
+    @include title-about;
+    margin-top: 0rem;
+    color: $color-secondary;
+    @include breakpoint("desktop"){
+        margin-top: 1rem;
+        font-size: 3.3rem;
+        line-height: 2rem;
+    }
+    @include breakpoint("tablet"){
+        margin-top: 1rem;
+        font-size: 3rem;
+        line-height: 2rem;
+    }
+}
+
+.about__text{
+    margin-top: 4.2rem;
+    font-family: $font-primary;
+    font-size: 1.5rem;
+    letter-spacing: 0.22px;
+    color: $color-letras;
+    opacity: 1;
+    @include breakpoint("desktop"){
+        font-size: 1.9rem;
+    }
+    @include breakpoint("tablet"){
+        font-size: 1.5rem;
+    }
+    @include breakpoint("mobile"){
+        font-size: 1rem;
+        width: 80%;
+    }
+}
+
+.about__decoration{
+    background: $color-secondary 0% 0% no-repeat padding-box;
+    content: 100%;
+    opacity: 1; 
+    left: 0px;
+    width: 3.2rem;
+    align-items: center;
+    margin: 14.4rem 0 14.4rem 0 ;
+    @include breakpoint("tablet"){
+        width: 5%;
+    }
+
+}

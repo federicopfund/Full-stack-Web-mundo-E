@@ -1,0 +1,59 @@
+
+.hero { 
+    .carousel{
+        img {
+            @include breakpoint("tablet") {
+                height: 700px;
+                object-fit: cover;  
+             } 
+            @include breakpoint("mobile") {
+                 height:800px; 
+                 object-fit:cover; 
+             }
+        }
+        .carousel-caption{
+            left: 0;
+            top: 35%;
+            text-align: left;
+            right: auto;
+            @include margin;
+            @include breakpoint("tablet"){
+                margin-left: 5rem;
+                top: 25%;
+            }
+            
+        }
+        h3 {
+          font-size:48px ; 
+          font-weight: bold;
+         }
+          p {   
+              font-size: 16px;
+            }
+        .carousel-indicators {
+            position: absolute;
+            margin-left: 10.1rem;
+            right: auto;
+            bottom: 2rem;
+            
+            @include breakpoint("tablet"){
+                margin-left: 5rem;
+            }
+            button{
+                margin: 5px 5px;
+                width: 1.2rem;
+                height: 1.2rem;
+                color: transparent;
+                background-color: $color-primary;
+                opacity: 0.4;
+                border-radius: 5rem;
+                border-top: none;
+                border-bottom: none;
+                &.active{
+                    background-color: $color-secondary;
+                    opacity: 1;
+                }
+            }
+        }
+    }   
+}

@@ -1,0 +1,73 @@
+@mixin make-grid-columns($columns) {
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    
+    @for $i from 1 through $columns {
+        $width: percentage($i / $columns);
+        $num: $i / $columns;
+        .col-#{$i} {
+            width: $width;
+            flex: 0 0 auto;
+        }
+        .col-offset-#{$i} {
+            margin-left: if($num == 0, 0, percentage($num));
+        }
+    }
+
+    @include breakpoint('mobile') {
+        [class*="col-"] {
+            width: 100%;
+        }
+        [class*="col-offset-"] {
+            margin-left: 0;
+        }
+    }
+}
+@mixin margin {
+    margin-left: 10.1rem;
+    margin-right: 4.4rem;
+}
+@mixin button {
+    border-radius: 2.5rem;
+    background-color: $color-secondary;
+    font-family: $font-secondary;
+    border: 1px solid $color-secondary;
+    color: $color-primary;
+    height: 4.8rem;
+    width: 14.4rem;
+    font-size: 1.5rem;
+    letter-spacing: 0.22px;
+    outline: none;
+    cursor: pointer;
+}
+
+@mixin breakpoint($breakpoint) {
+    @if $breakpoint == "mobile" {
+        @media only screen and (max-width: 768px) {
+            @content;
+        }
+    } @else if $breakpoint == "tablet" {
+        @media only screen and (min-width: 768px) and (max-width: 992px) {
+            @content;
+        }
+    } @else if $breakpoint == "desktop" {
+        @media only screen and (min-width: 992px) {
+            @content;
+        }
+    }
+}
+
+@mixin border-radius($size) {
+    -webkit-border-radius: $size;
+    -moz-border-radius: $size;
+    border-radius: $size;
+}
+@mixin title-about{
+    font-family: $font-secondary;
+    font-size: 3.9rem;
+    text-align: left;
+    letter-spacing: 0.055rem;
+    opacity: 1;
+}

@@ -1,0 +1,25 @@
+footer{
+    background-color: $color-footer;
+    height: 14vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    p{
+        margin: 0 10rem;
+        color: $color-footer-p;
+        font-family: $font-footer-p;
+        font-size: 1.4rem;
+        letter-spacing: 0.22px;
+        padding: 0;
+        @include breakpoint("tablet"){
+            margin: 0 5rem;
+        }
+    }
+    a{
+        margin-right: 10rem;
+        width: 86px;
+        @include breakpoint("tablet"){
+            margin-right: 5rem;
+        }
+    }
+}
