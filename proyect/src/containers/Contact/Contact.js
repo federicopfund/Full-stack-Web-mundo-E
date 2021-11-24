@@ -8,40 +8,6 @@ const Contact = () => {
 
   const [showAlert, setShowAlert] = useState(false)
   const [error, setError] = useState(false)
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const form = e.currentTarget;
-
-    setValidated(true);
-
-    if (form.checkValidity() === false) {
-      e.stopPropagation();
-    } else {
-      let response
-      
-      try {
-        response = await sendEmail(formData);
-
-        if (response.status === 201) {
-          setShowAlert(true)
-          setError(false);
-
-          
-          setValidated(false);
-
-          setTimeout(()=>{setShowAlert(false)}, 3000)
-          form.reset()
-        } else {
-          setError(true)
-        }
-      } catch(err) {
-        setShowAlert(true)
-        setError(true)
-      }
-    }
-  }
-
   const handleOnChange = (e) => {
     
     setFormData((prevState) => {
@@ -51,6 +17,32 @@ const Contact = () => {
       }
     })
   }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const form = e.currentTarget;
+    console.log("form.checkValidity()",form.checkValidity());
+    setValidated(true);
+
+    if (form.checkValidity() === false) {
+      setError(true);
+      setShowAlert(true);
+      setValidated(false);
+     // e.stopPropagation();
+    } else {
+      
+      const response = await sendEmail(formData);
+
+        if (response.status === 201) {
+          setShowAlert(true)
+          setError(false);
+          setTimeout(()=>{setShowAlert(false)}, 3000);
+          setValidated(true);
+          form.reset();
+        } 
+    }
+  }
+
 
   return (
     <section className="contact" id="contact">
@@ -121,7 +113,7 @@ const Contact = () => {
         </Row>
         
         { showAlert 
-          ? !error 
+          ? error 
             ? <Alert variant={'danger'}>Hubo un error al enviar el email </Alert> 
             : <Alert variant={'success'}>Email enviado con éxito</Alert> 
           : null }
