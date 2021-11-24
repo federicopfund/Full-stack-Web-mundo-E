@@ -99,7 +99,7 @@ const Contact = () => {
                 <Form.Control
                   onChange={handleOnChange}
                   required
-                  name='message'
+                  name='messege'
                   as='textarea'
                   rows={3}
                   placeholder='Message'
