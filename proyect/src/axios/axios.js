@@ -1,7 +1,7 @@
 import axios from "axios"
 
 const instance = axios.create({
-  baseURL: 'http://webmundose.herokuapp.com/About/'
+  baseURL: 'https://webmundose.herokuapp.com/About/'
 })
 
 const sendEmail = async (data) => {
