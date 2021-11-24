@@ -1,13 +1,13 @@
 import axios from "axios"
 
 const instance = axios.create({
-  baseURL: 'https://webmundose.herokuapp.com/About/'
+  baseURL: 'https://webmundose.herokuapp.com/api/'
 })
 
 const sendEmail = async (data) => {
   const response = await instance({
     method: 'post',
-    url: 'contact/store',
+    url: 'About/save',
     data: data
   });
 
