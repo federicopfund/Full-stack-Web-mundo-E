@@ -27,11 +27,11 @@ const Contact = () => {
           setShowAlert(true)
           setError(false);
 
-          form.reset()
-
+          
           setValidated(false);
 
           setTimeout(()=>{setShowAlert(false)}, 3000)
+          form.reset()
         } else {
           setError(true)
         }
@@ -121,7 +121,7 @@ const Contact = () => {
         </Row>
         
         { showAlert 
-          ? error 
+          ? !error 
             ? <Alert variant={'danger'}>Hubo un error al enviar el email </Alert> 
             : <Alert variant={'success'}>Email enviado con éxito</Alert> 
           : null }
